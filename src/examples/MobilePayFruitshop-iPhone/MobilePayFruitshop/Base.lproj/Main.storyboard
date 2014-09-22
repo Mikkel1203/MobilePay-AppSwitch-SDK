@@ -3,7 +3,6 @@
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Products-->
@@ -29,10 +28,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="h1e-R9-4v3" secondAttribute="trailing" constant="-16" id="9k3-HU-L3n"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="h1e-R9-4v3" secondAttribute="bottom" id="A2X-zZ-ybb"/>
-                            <constraint firstItem="h1e-R9-4v3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="Gd6-dt-fFr"/>
-                            <constraint firstItem="h1e-R9-4v3" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="20" id="TWq-J1-u3r"/>
+                            <constraint firstItem="h1e-R9-4v3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Q8G-ea-9zZ"/>
+                            <constraint firstAttribute="trailing" secondItem="h1e-R9-4v3" secondAttribute="trailing" id="gLK-Mw-Baf"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="h1e-R9-4v3" secondAttribute="bottom" id="rjT-gW-gI7"/>
+                            <constraint firstItem="h1e-R9-4v3" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="20" id="xZU-6q-yKJ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fruitshop" image="first" id="acW-dT-cKf"/>
@@ -80,20 +79,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is an example app showing the features of MobilePay AppSwitch SDK" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-qN-UKB">
-                                <rect key="frame" x="33" y="316" width="287" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="Q0J-Tc-mqq"/>
-                                    <constraint firstAttribute="width" constant="287" id="zwP-7d-zsP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="MobilePay AppSwitch SDK" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" preferredMaxLayoutWidth="287" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="17" y="220" width="287" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="MobilePay AppSwitch SDK" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="10" y="257" width="300" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an example app showing the features of MobilePay AppSwitch SDK" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="287" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-qN-UKB">
+                                <rect key="frame" x="20" y="253" width="280" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
