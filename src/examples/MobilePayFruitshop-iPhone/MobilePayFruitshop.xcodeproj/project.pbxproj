@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2689D41B19CAC79100B63C07 /* MobilePayFruitshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePayFruitshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2689D41B19CAC79100B63C07 /* Fruit Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fruit Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2689D41F19CAC79100B63C07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2689D42019CAC79100B63C07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2689D42219CAC79100B63C07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2642DC4919EBF50800A490AB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2689D46219CAD31400B63C07 /* ViewHelper.h */,
+				2689D46319CAD31400B63C07 /* ViewHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		2689D41219CAC79100B63C07 = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +83,7 @@
 		2689D41C19CAC79100B63C07 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2689D41B19CAC79100B63C07 /* MobilePayFruitshop.app */,
+				2689D41B19CAC79100B63C07 /* Fruit Shop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,14 +93,13 @@
 			children = (
 				26AC87B619D036C3002D6AD9 /* ViewControllers */,
 				26AC87BC19D036C3002D6AD9 /* ViewModels */,
+				2642DC4919EBF50800A490AB /* Helpers */,
 				2689D42219CAC79100B63C07 /* AppDelegate.h */,
 				2689D42319CAC79100B63C07 /* AppDelegate.m */,
 				2689D42E19CAC79100B63C07 /* Images.xcassets */,
 				2689D43019CAC79100B63C07 /* LaunchScreen.xib */,
 				2689D42B19CAC79100B63C07 /* Main.storyboard */,
 				2689D41E19CAC79100B63C07 /* Supporting Files */,
-				2689D46219CAD31400B63C07 /* ViewHelper.h */,
-				2689D46319CAD31400B63C07 /* ViewHelper.m */,
 			);
 			path = MobilePayFruitshop;
 			sourceTree = "<group>";
@@ -161,7 +169,7 @@
 			);
 			name = MobilePayFruitshop;
 			productName = MobilePayFruitshop;
-			productReference = 2689D41B19CAC79100B63C07 /* MobilePayFruitshop.app */;
+			productReference = 2689D41B19CAC79100B63C07 /* Fruit Shop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +341,7 @@
 					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.0/MobilePayManager",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Fruit Shop";
 			};
 			name = Debug;
 		};
@@ -349,7 +357,7 @@
 					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.0/MobilePayManager",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Fruit Shop";
 			};
 			name = Release;
 		};

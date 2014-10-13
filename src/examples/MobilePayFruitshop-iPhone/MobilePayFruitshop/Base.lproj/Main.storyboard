@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fruitshop" image="first" id="acW-dT-cKf"/>
-                    <navigationItem key="navigationItem" title="Fruitshop" id="Otd-LX-XK5">
+                    <navigationItem key="navigationItem" title="Fruit Shop" id="Otd-LX-XK5">
                         <barButtonItem key="rightBarButtonItem" title="About" id="Rsw-se-mIh">
                             <connections>
                                 <segue destination="8rJ-Kc-sve" kind="show" id="r8X-Jx-TI0"/>
