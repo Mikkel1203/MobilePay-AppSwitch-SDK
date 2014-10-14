@@ -24,7 +24,7 @@
     
     [self.products addObject:[[ProductViewModel alloc] initWithName:@"Orange" price:10.00 image:[UIImage imageNamed:@"orange.png"]]];
     [self.products addObject:[[ProductViewModel alloc] initWithName:@"Kiwi" price:0.56 image:[UIImage imageNamed:@"kiwi.png"]]];
-    [self.products addObject:[[ProductViewModel alloc] initWithName:@"Jorbær" price:4.43 image:[UIImage imageNamed:@"strawberry.png"]]];
+    [self.products addObject:[[ProductViewModel alloc] initWithName:@"Jordbær" price:4.43 image:[UIImage imageNamed:@"strawberry.png"]]];
     [self.products addObject:[[ProductViewModel alloc] initWithName:@"Fruit basket" price:1501.52 image:[UIImage imageNamed:@"fruit_basket.png"]]];
 
 }
