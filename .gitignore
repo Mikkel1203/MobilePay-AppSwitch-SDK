@@ -11,3 +11,10 @@ xcuserdata
 #*.xcworkspace
 #!default.xcworkspace
 
+
+bin/
+obj/
+packages/
+*.suo
+*.user
+*.sln.ide/
