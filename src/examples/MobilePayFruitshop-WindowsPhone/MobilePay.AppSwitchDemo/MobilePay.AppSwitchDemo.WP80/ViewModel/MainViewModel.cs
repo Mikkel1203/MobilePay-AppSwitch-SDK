@@ -19,7 +19,6 @@ namespace MobilePay.AppSwitchDemo.ViewModel
     {
         private readonly IProductService productService;
         private readonly IMobilePayService mobilePayService;
-        private readonly IPaymentResultService paymentResultService;
         private readonly IPaymentResultHandler paymentResultHandler;
 
         public List<Product> Products { get; set; }
@@ -27,11 +26,10 @@ namespace MobilePay.AppSwitchDemo.ViewModel
         public RelayCommand<Product> BuyProductCommand { get; set; }
 
 
-        public MainViewModel(IProductService productService, IMobilePayService mobilePayService, IPaymentResultService paymentResultService, IPaymentResultHandler paymentResultHandler)
+        public MainViewModel(IProductService productService, IMobilePayService mobilePayService, IPaymentResultHandler paymentResultHandler)
         {
             this.productService = productService;
             this.mobilePayService = mobilePayService;
-            this.paymentResultService = paymentResultService;
             this.paymentResultHandler = paymentResultHandler;
 
             BuyProductCommand = new RelayCommand<Product>(Buy);
@@ -57,7 +55,7 @@ namespace MobilePay.AppSwitchDemo.ViewModel
         public async void LoadFromQueryString(IDictionary<string, string> queryString)
         {
             await Task.Delay(300);
-            await paymentResultService.HandlePaymentResultFromQueryStringAsync(queryString, paymentResultHandler.Success, paymentResultHandler.Failure);
+            await mobilePayService.PaymentResultHandler.HandlePaymentResultFromQueryStringAsync(queryString, paymentResultHandler.Success, paymentResultHandler.Failure);
         }
     }
 }

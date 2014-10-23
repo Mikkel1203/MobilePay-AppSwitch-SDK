@@ -173,8 +173,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="crypto">
-      <HintPath>..\packages\MobilePay.SDK.1.0.45\lib\windowsphone8\crypto.dll</HintPath>
+    <Reference Include="crypto, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MobilePay.SDK.1.1.0.48\lib\windowsphone8\crypto.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\packages\Portable.MvvmLightLibs.5.0.0.1\lib\wp8\GalaSoft.MvvmLight.dll</HintPath>
@@ -189,13 +190,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="MobilePay.SDK">
-      <HintPath>..\packages\MobilePay.SDK.1.0.45\lib\windowsphone8\MobilePay.SDK.dll</HintPath>
+    <Reference Include="MobilePay.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MobilePay.SDK.1.1.0.48\lib\windowsphone8\MobilePay.SDK.dll</HintPath>
     </Reference>
-    <Reference Include="MobilePay.SDK.Shared">
-      <HintPath>..\packages\MobilePay.SDK.1.0.45\lib\windowsphone8\MobilePay.SDK.Shared.dll</HintPath>
+    <Reference Include="MobilePay.SDK.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MobilePay.SDK.1.1.0.48\lib\windowsphone8\MobilePay.SDK.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
