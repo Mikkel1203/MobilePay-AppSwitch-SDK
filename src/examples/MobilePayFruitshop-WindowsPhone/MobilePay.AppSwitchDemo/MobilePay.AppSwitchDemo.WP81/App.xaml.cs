@@ -114,9 +114,9 @@ namespace MobilePay.AppSwitchDemo
 
                 var queryString = protocolEventArgs.Uri.ParseQueryStringParameters();
 
-                var paymentResultService = ServiceLocator.Current.GetInstance<IPaymentResultService>();
+                var mobilePayService = ServiceLocator.Current.GetInstance<IMobilePayService>();
                 var paymentResultHandler = ServiceLocator.Current.GetInstance<IPaymentResultHandler>();
-                await paymentResultService.HandlePaymentResultFromQueryStringAsync(queryString, paymentResultHandler.Success, paymentResultHandler.Failure);
+                await mobilePayService.PaymentResultHandler.HandlePaymentResultFromQueryStringAsync(queryString, paymentResultHandler.Success, paymentResultHandler.Failure);
             }
 
             base.OnActivated(args);
@@ -124,9 +124,9 @@ namespace MobilePay.AppSwitchDemo
 
         protected override async void OnFileActivated(FileActivatedEventArgs args)
         {
-            var paymentResultService = ServiceLocator.Current.GetInstance<IPaymentResultService>();
+            var mobilePayService = ServiceLocator.Current.GetInstance<IMobilePayService>();
             var paymentResultHandler = ServiceLocator.Current.GetInstance<IPaymentResultHandler>();
-            await paymentResultService.HandlePaymentResultFromFileAsync(args.Files.OfType<IStorageFile>().First(), paymentResultHandler.Success, paymentResultHandler.Failure);
+            await mobilePayService.PaymentResultHandler.HandlePaymentResultFromFileAsync(args.Files.OfType<IStorageFile>().First(), paymentResultHandler.Success, paymentResultHandler.Failure);
             base.OnFileActivated(args);
         }
 

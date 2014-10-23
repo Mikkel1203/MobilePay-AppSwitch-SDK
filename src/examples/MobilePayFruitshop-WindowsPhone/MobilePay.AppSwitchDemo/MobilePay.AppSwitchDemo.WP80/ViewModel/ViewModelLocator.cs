@@ -38,16 +38,14 @@ namespace MobilePay.AppSwitchDemo.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            SimpleIoc.Default.Register<IMobilePayParserService, MobilePayParserService>();
             SimpleIoc.Default.Register<IProductService, ProductService>();
-            SimpleIoc.Default.Register<IPaymentResultService, PaymentResultService>();
             SimpleIoc.Default.Register<IPaymentResultHandler, PaymentResultHandler>();
             SimpleIoc.Default.Register<MainViewModel>();
 
             //Setup IMobilePayService for app switch
             SimpleIoc.Default.Register<IMobilePayService>(() =>
             {
-                return new MobilePayService("APPDK0000000000", null, "fruitshop", "fruitshop:failure");
+                return new MobilePayService("APPDK0000000000", "fruitshop", "fruitshop:failure");
             });
         }
 
