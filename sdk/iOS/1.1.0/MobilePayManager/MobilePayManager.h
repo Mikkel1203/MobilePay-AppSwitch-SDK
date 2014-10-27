@@ -26,21 +26,32 @@
 -(void) setupWithMerchantId:(NSString *)merchantId merchantUrlScheme:(NSString *)merchantUrlScheme timeoutSeconds:(int)timeoutSeconds returnSeconds:(int)returnSeconds;
 
 /**
- * will start the MobilePay payment flow by swithing to the mobile pay app
- * orderId: is never saved in MobilePay but only sent through the purchase flow so that you are able to track the purchase and deliver the right product.
+ * will start the MobilePay payment flow by swithing to the MobilePay app
+ * orderId: Text with a max length of 50 characters. Sent through the purchase flow and returned to your app when the payment is completed so that you are able to deliver the right product.
  * productPrice: price of the product
- * productImage: image of the product (only supported if you have a special deal with MobilePay)
- * receiptMessage: message shown at the bottom of the MobilePay receipt
+ * receiptMessage: Text with a max length of 66 characters. the message is shown at the bottom of the MobilePay receipt
  * An error will occur if mobile pay isn't installed
  */
+-(void) beginMobilePaymentWithOrderId:(NSString *)orderId productPrice:(float)productPrice receiptMessage:(NSString *)receiptMessage error:(void (^)(NSError *error))errorBlock;
+
+/**
+  * will start the MobilePay payment flow by swithing to the MobilePay app
+  * orderId: Text with a max length of 50 characters. Sent through the purchase flow and returned to your app when the payment is completed so that you are able to deliver the right product.
+  * productName: obsolete
+  * productPrice: price of the product
+  * productImage: image of the product (only supported for a few merchants with a special agreement with MobilePay)
+  * receiptMessage: Text with a max length of 66 characters. the message is shown at the bottom of the MobilePay receipt
+  * An error will occur if mobile pay isn't installed
+  */
 -(void) beginMobilePaymentWithOrderId:(NSString *)orderId productName:(NSString *)productName productPrice:(float)productPrice productImage:(UIImage *)productImage receiptMessage:(NSString *)receiptMessage error:(void (^)(NSError *error))errorBlock;
 
 /**
  * handleMobilePayCallbacksWithUrl should be called from AppDelegate method:
  * -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
  * success:
- * orderId: it is now validated that the orderId is the same as the one sent to MobilePay
+ * orderId: the SDK has validated that the orderId is the same as the one sent to MobilePay
  * transactionId: MobilePay transactionId that can be found in the MobilePay activity list
+ * signature: this is the payment signature that the SDK validates against to ensure the payment authenticity
  * error:
  * errorCodes:
  * 1 = Invalid parameters sent to mobile pay
@@ -82,8 +93,6 @@
  */
 @property (nonatomic, readonly) BOOL isAppSwitchInProgress;
 
-#ifdef DEBUG
-
 /**
  * for internal development purpose only
  */
@@ -92,7 +101,5 @@
  * for internal development purpose only
  */
 -(void)setMobilePayUrlScheme:(NSString *)mobilePayUrlScheme;
-
-#endif
 
 @end

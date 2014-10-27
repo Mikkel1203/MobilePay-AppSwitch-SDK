@@ -70,7 +70,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductViewModel *product = [self.products objectAtIndex:indexPath.row];
-    [[MobilePayManager sharedInstance] beginMobilePaymentWithOrderId:[NSString stringWithFormat:@"123456"] productName:product.name productPrice:product.price productImage:product.image receiptMessage:@"Tak fordi du handlede hos os, nyd din frugt!" error:^(NSError *error) {
+    [[MobilePayManager sharedInstance] beginMobilePaymentWithOrderId:[NSString stringWithFormat:@"123456"] productPrice:product.price receiptMessage:@"Tak for dit køb, nyd din frugt!" error:^(NSError *error) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription
                                                         message:[NSString stringWithFormat:@"reason: %@, suggestion: %@",error.localizedFailureReason, error.localizedRecoverySuggestion]
                                                        delegate:self

@@ -112,11 +112,9 @@ namespace MobilePay.AppSwitchDemo
             {
                 ProtocolActivatedEventArgs protocolEventArgs = args as ProtocolActivatedEventArgs;
 
-                var queryString = protocolEventArgs.Uri.ParseQueryStringParameters();
-
                 var mobilePayService = ServiceLocator.Current.GetInstance<IMobilePayService>();
                 var paymentResultHandler = ServiceLocator.Current.GetInstance<IPaymentResultHandler>();
-                await mobilePayService.PaymentResultHandler.HandlePaymentResultFromQueryStringAsync(queryString, paymentResultHandler.Success, paymentResultHandler.Failure);
+                await mobilePayService.PaymentResultHandler.HandlePaymentResultFromQueryStringAsync(protocolEventArgs.Uri, paymentResultHandler.Success, paymentResultHandler.Failure);
             }
 
             base.OnActivated(args);
