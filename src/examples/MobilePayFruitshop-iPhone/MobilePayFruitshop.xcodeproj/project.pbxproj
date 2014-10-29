@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		264CF4431A011035000523BF /* libMobilePayManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 264CF4421A011035000523BF /* libMobilePayManager.a */; };
 		2689D42119CAC79100B63C07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2689D42019CAC79100B63C07 /* main.m */; };
 		2689D42419CAC79100B63C07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2689D42319CAC79100B63C07 /* AppDelegate.m */; };
 		2689D42D19CAC79100B63C07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2689D42B19CAC79100B63C07 /* Main.storyboard */; };
@@ -16,13 +17,14 @@
 		2689D45619CACE8C00B63C07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2689D45519CACE8C00B63C07 /* CoreGraphics.framework */; };
 		2689D45819CACF8C00B63C07 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2689D45719CACF8C00B63C07 /* CoreFoundation.framework */; };
 		2689D46419CAD31400B63C07 /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2689D46319CAD31400B63C07 /* ViewHelper.m */; };
-		26AC87B419D023F7002D6AD9 /* libMobilePayManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26AC87B319D023F7002D6AD9 /* libMobilePayManager.a */; };
 		26AC87BE19D036C3002D6AD9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87B819D036C3002D6AD9 /* AboutViewController.m */; };
 		26AC87C019D036C3002D6AD9 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87BA19D036C3002D6AD9 /* ProductListViewController.m */; };
 		26AC87C219D036C3002D6AD9 /* ProductViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87BB19D036C3002D6AD9 /* ProductViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		264CF4421A011035000523BF /* libMobilePayManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobilePayManager.a; path = ../../../sdk/iOS/1.1.1/MobilePayManager/libMobilePayManager.a; sourceTree = "<group>"; };
+		264CF4441A011056000523BF /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobilePayManager.h; path = ../../../sdk/iOS/1.1.1/MobilePayManager/MobilePayManager.h; sourceTree = "<group>"; };
 		2689D41B19CAC79100B63C07 /* Fruit Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fruit Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2689D41F19CAC79100B63C07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2689D42019CAC79100B63C07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -36,8 +38,6 @@
 		2689D45719CACF8C00B63C07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		2689D46219CAD31400B63C07 /* ViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelper.h; sourceTree = "<group>"; };
 		2689D46319CAD31400B63C07 /* ViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHelper.m; sourceTree = "<group>"; };
-		26AC87B319D023F7002D6AD9 /* libMobilePayManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobilePayManager.a; path = ../../../sdk/iOS/1.1.0/MobilePayManager/libMobilePayManager.a; sourceTree = "<group>"; };
-		26AC87B519D0240B002D6AD9 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobilePayManager.h; path = ../../../sdk/iOS/1.1.0/MobilePayManager/MobilePayManager.h; sourceTree = "<group>"; };
 		26AC87B719D036C3002D6AD9 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		26AC87B819D036C3002D6AD9 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		26AC87B919D036C3002D6AD9 /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26AC87B419D023F7002D6AD9 /* libMobilePayManager.a in Frameworks */,
+				264CF4431A011035000523BF /* libMobilePayManager.a in Frameworks */,
 				2689D45819CACF8C00B63C07 /* CoreFoundation.framework in Frameworks */,
 				2689D45619CACE8C00B63C07 /* CoreGraphics.framework in Frameworks */,
 				2689D45419CACE7800B63C07 /* UIKit.framework in Frameworks */,
@@ -116,7 +116,7 @@
 		2689D44719CAC83200B63C07 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				26AC87B519D0240B002D6AD9 /* MobilePayManager.h */,
+				264CF4441A011056000523BF /* MobilePayManager.h */,
 			);
 			name = Externals;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 		2689D44C19CAC9CA00B63C07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26AC87B319D023F7002D6AD9 /* libMobilePayManager.a */,
+				264CF4421A011035000523BF /* libMobilePayManager.a */,
 				2689D45719CACF8C00B63C07 /* CoreFoundation.framework */,
 				2689D45519CACE8C00B63C07 /* CoreGraphics.framework */,
 				2689D45319CACE7800B63C07 /* UIKit.framework */,
@@ -339,6 +339,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.0/MobilePayManager",
+					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.1/MobilePayManager",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Fruit Shop";
@@ -355,6 +356,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.0/MobilePayManager",
+					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.1/MobilePayManager",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Fruit Shop";
