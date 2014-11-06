@@ -338,8 +338,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.0/MobilePayManager",
-					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.1/MobilePayManager",
+					"$(PROJECT_DIR)/../../../sdk/iOS/1.1.1/MobilePayManager",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Fruit Shop";
@@ -355,8 +354,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.0/MobilePayManager",
-					"/Volumes/Trifork/DanskeBank-MobilePay-AppSwitch-SDK-GitHub/sdk/iOS/1.1.1/MobilePayManager",
+					"$(PROJECT_DIR)/../../../sdk/iOS/1.1.1/MobilePayManager",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Fruit Shop";
