@@ -54,9 +54,6 @@ public class MainActivity extends ListActivity {
         // Set the product price
         payment.setProductPrice(product.getPrice());
 
-        // Set the product name
-        payment.setProductName(product.getName());
-
         // Set the message shown at the bottom of the receipt in MobilePay
         payment.setReceiptMessage(getString(R.string.payment_receipt_message));
 
