@@ -16,7 +16,7 @@ class ProductAdapter extends ArrayAdapter<Product> {
     private final Context context;
     private final int layoutResourceId;
     private final DecimalFormat priceFormat;
-    private ArrayList<Product> data = null;
+    private final ArrayList<Product> data;
 
     public ProductAdapter(Context context, ArrayList<Product> data) {
         super(context, R.layout.row_image_with_text, data);
