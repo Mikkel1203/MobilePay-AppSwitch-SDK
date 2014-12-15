@@ -175,7 +175,7 @@
   <ItemGroup>
     <Reference Include="crypto, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MobilePay.SDK.1.1.0.48\lib\windowsphone8\crypto.dll</HintPath>
+      <HintPath>..\packages\MobilePay.SDK.1.5.0.57\lib\windowsphone8\crypto.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\packages\Portable.MvvmLightLibs.5.0.0.1\lib\wp8\GalaSoft.MvvmLight.dll</HintPath>
@@ -192,11 +192,11 @@
     </Reference>
     <Reference Include="MobilePay.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MobilePay.SDK.1.1.0.48\lib\windowsphone8\MobilePay.SDK.dll</HintPath>
+      <HintPath>..\packages\MobilePay.SDK.1.5.0.57\lib\windowsphone8\MobilePay.SDK.dll</HintPath>
     </Reference>
     <Reference Include="MobilePay.SDK.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MobilePay.SDK.1.1.0.48\lib\windowsphone8\MobilePay.SDK.Shared.dll</HintPath>
+      <HintPath>..\packages\MobilePay.SDK.1.5.0.57\lib\windowsphone8\MobilePay.SDK.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
