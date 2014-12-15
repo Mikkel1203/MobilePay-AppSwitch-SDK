@@ -64,6 +64,7 @@
  *  8 = Timeout set in merchant app exceeded
  *  9 = Invalid signature
  * 10 = MobilePay SDK version is outdated
+ * 11 = The given OrderId is already used. An OrderId has to be unique.
  */
 -(void) handleMobilePayCallbacksWithUrl:(NSURL *)url success:(void (^)(NSString *orderId, NSString *transactionId, NSString *signature))successBlock error:(void (^)(NSString *orderId, int errorCode, NSString *errorMessage))errorBlock cancel:(void (^)(NSString *orderId))cancelBlock;
 
