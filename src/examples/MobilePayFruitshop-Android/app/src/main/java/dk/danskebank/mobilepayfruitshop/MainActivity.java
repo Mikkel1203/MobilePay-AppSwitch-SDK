@@ -27,11 +27,11 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize the IntentHelper with your own Merchant ID
+        // Initialize MobilePay with your own Merchant ID.
         MobilePay.getInstance().init(getString(R.string.merchant_id_generic));
 
-        // Create some dummy items and setup the list adapter
-        ArrayList<Product> products = new ArrayList<Product>();
+        // Create some dummy items and setup the list adapter.
+        ArrayList<Product> products = new ArrayList<>();
         products.add(new Product(getString(R.string.product_name_orange), new BigDecimal(10), R.drawable.orange));
         products.add(new Product(getString(R.string.product_name_kiwi), new BigDecimal(0.56), R.drawable.kiwi));
         products.add(new Product(getString(R.string.product_name_strawberry), new BigDecimal(4.43), R.drawable.strawberry));
@@ -48,32 +48,32 @@ public class MainActivity extends ListActivity {
 
         Product product = adapter.getItem(position);
 
-        // Create a new payment object
+        // Create a new MobilePay Payment object.
         Payment payment = new Payment();
 
-        // Set the product price
+        // Set the product price.
         payment.setProductPrice(product.getPrice());
 
-        // Set the product name
+        // Set the product name.
         payment.setProductName(product.getName());
 
-        // Set the message shown at the bottom of the receipt in MobilePay
+        // Set the message shown at the bottom of the receipt in MobilePay.
         payment.setReceiptMessage(getString(R.string.payment_receipt_message));
 
-        // Set the order ID. This is your reference and should match your business case
+        // Set the order ID. This is your reference and should match your business case. Has to be unique.
         payment.setOrderId(UUID.randomUUID().toString());
 
-        // Create an Intent with the Payment specified
+        // Create an Intent with the Payment specified.
         Intent paymentIntent = MobilePay.getInstance().createPaymentIntent(payment);
 
-        // Query the SDK to see if MobilePay is present
+        // Query the SDK to see if MobilePay is present on the system.
         boolean isMobilePayInstalled = MobilePay.getInstance().isMobilePayInstalled(this);
 
         if (isMobilePayInstalled) {
-            // Start a new activity with the Intent and a specific request code
+            // Start a new activity with the Intent and a specific request code.
             startActivityForResult(paymentIntent, MOBILEPAY_PAYMENT_REQUEST_CODE);
         } else {
-            // Error dialog, with possible download
+            // Error dialog, with possible download.
             downloadMobilePayApp();
         }
 
@@ -85,23 +85,35 @@ public class MainActivity extends ListActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == MOBILEPAY_PAYMENT_REQUEST_CODE) {
-            // We received a payment response matching our request code
+            // We received a payment response matching our request code.
+
             MobilePay.getInstance().handleResult(resultCode, data, new ResultCallback() {
                 @Override
                 public void onSuccess(SuccessResult result) {
                     // The payment succeeded. SuccessResult holds further information.
+
+                    // Show dialog with transaction id from MobilePay.
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_success_title), getString(R.string.payment_result_dialog_success_message, result.getTransactionId()));
                 }
 
                 @Override
                 public void onFailure(FailureResult result) {
                     // The payment failed. FailureResult holds further information.
+
+                    // Example of how to catch a specific MobilePay error code.
+                    if(result.getErrorCode() == MobilePay.ERROR_RESULT_CODE_UPDATE_APP){
+                        // Notify the user to update MobilePay.
+                        showPaymentResultDialog(getString(R.string.payment_result_dialog_error_update_title), getString(R.string.payment_result_dialog_error_update_message));
+                    }
+
+                    // Show dialog with error code and message.
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_error_title, String.valueOf(result.getErrorCode())), result.getErrorMessage());
                 }
 
                 @Override
                 public void onCancel() {
-                    // The payment was cancelled
+                    // The payment was cancelled.
+
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_cancelled_title), getString(R.string.payment_result_dialog_cancelled_message));
                 }
             });
@@ -124,7 +136,7 @@ public class MainActivity extends ListActivity {
                 .setPositiveButton(getString(R.string.install_mobilepay_dialog_positive_text), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Create a MobilePay download Intent
+                        // Create a MobilePay download Intent.
                         Intent intent = MobilePay.getInstance().createDownloadMobilePayIntent(getBaseContext());
                         startActivity(intent);
                     }
