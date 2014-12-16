@@ -1,18 +1,18 @@
-## What is the MobilePay AppSwitch SDK?
+## MobilePay AppSwitch?
 The MobilePay SDK enables your app to receive payments through the MobilePay app.
 ![][1]
 
-**What happens is**  
-1. You initiate the payment from your own app through the SDK  
-2. It automatically switches to the MobilePay App where you can sign  
-3. You confirm the payment  
-4. Your receipt id shown and you can either tap "videre" or wait for five seconds  
-5. It switches back to your own app together with a MobilePay transactionId  
+**How it works**  
+1. You initiate the payment from your own app through the SDK.
+2. It automatically switches to the MobilePay App where the user is asked to sign in. 
+3. The user confirms the payment.
+4. The receipt is shown and the user can either tap "videre" or wait for five seconds.
+5. MobilePay switches back to your own app together with a MobilePay transactionId.
 
 ## Requirements
-* You have a MobilePay business agreement with Danske Bank. Read more https://www.danskebank.dk/da-dk/Erhverv/pages/mobilepaybusiness.aspx
+* You have a MobilePay business agreement with Danske Bank. Read more at [MobilePay Business](https://www.danskebank.dk/da-dk/Erhverv/pages/mobilepaybusiness.aspx)
 * You have received a MerchantId from Danske Bank that you must use when communicating through the SDK
-* You have downloaded the latest SDK for the wanted platform. https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/tree/master/sdk
+* You have downloaded the latest SDK for the wanted platform. [AppSwitch SDK](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/tree/master/sdk)
 
   [1]: https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/blob/master/doc/wiki/images/mobilepay_appswitch_purchase_flow.png "MobilePay AppSwitch purchase flow"
 
