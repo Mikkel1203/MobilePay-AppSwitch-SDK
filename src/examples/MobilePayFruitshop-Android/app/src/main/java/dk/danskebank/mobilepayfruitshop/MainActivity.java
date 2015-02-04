@@ -67,7 +67,7 @@ public class MainActivity extends ListActivity {
         Intent paymentIntent = MobilePay.getInstance().createPaymentIntent(payment);
 
         // Query the SDK to see if MobilePay is present on the system.
-        boolean isMobilePayInstalled = MobilePay.getInstance().isMobilePayInstalled(this);
+        boolean isMobilePayInstalled = MobilePay.getInstance().isMobilePayInstalled(getApplicationContext());
 
         if (isMobilePayInstalled) {
             // Start a new activity with the Intent and a specific request code.
@@ -137,7 +137,7 @@ public class MainActivity extends ListActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Create a MobilePay download Intent.
-                        Intent intent = MobilePay.getInstance().createDownloadMobilePayIntent(getBaseContext());
+                        Intent intent = MobilePay.getInstance().createDownloadMobilePayIntent(getApplicationContext());
                         startActivity(intent);
                     }
                 })
