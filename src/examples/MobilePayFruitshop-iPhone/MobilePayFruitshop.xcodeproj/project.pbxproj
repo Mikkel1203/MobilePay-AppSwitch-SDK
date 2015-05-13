@@ -18,8 +18,8 @@
 		2689D46419CAD31400B63C07 /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2689D46319CAD31400B63C07 /* ViewHelper.m */; };
 		26AC87BE19D036C3002D6AD9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87B819D036C3002D6AD9 /* AboutViewController.m */; };
 		26AC87C019D036C3002D6AD9 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87BA19D036C3002D6AD9 /* ProductListViewController.m */; };
-		26AC87C219D036C3002D6AD9 /* ProductViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87BB19D036C3002D6AD9 /* ProductViewModel.m */; };
-		50DC45121A3F182100F6F608 /* libMobilePayManager1.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50DC45111A3F182100F6F608 /* libMobilePayManager1.5.0.a */; };
+		505D5C181B03678600C9AA44 /* libMobilePayManager1.6.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D5C161B03678600C9AA44 /* libMobilePayManager1.6.0.a */; };
+		505D5C1A1B0367DD00C9AA44 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D5C191B0367DD00C9AA44 /* Product.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +40,10 @@
 		26AC87B819D036C3002D6AD9 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		26AC87B919D036C3002D6AD9 /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		26AC87BA19D036C3002D6AD9 /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
-		26AC87BB19D036C3002D6AD9 /* ProductViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewModel.m; sourceTree = "<group>"; };
-		26AC87BD19D036C3002D6AD9 /* ProductViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewModel.h; sourceTree = "<group>"; };
-		50DC45111A3F182100F6F608 /* libMobilePayManager1.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobilePayManager1.5.0.a; path = ../../../sdk/iOS/1.5.0/MobilePayManager/libMobilePayManager1.5.0.a; sourceTree = "<group>"; };
-		50DC45141A3F18E200F6F608 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobilePayManager.h; path = ../../../sdk/iOS/1.5.0/MobilePayManager/MobilePayManager.h; sourceTree = "<group>"; };
+		26AC87BD19D036C3002D6AD9 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		505D5C161B03678600C9AA44 /* libMobilePayManager1.6.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobilePayManager1.6.0.a; sourceTree = "<group>"; };
+		505D5C171B03678600C9AA44 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayManager.h; sourceTree = "<group>"; };
+		505D5C191B0367DD00C9AA44 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50DC45121A3F182100F6F608 /* libMobilePayManager1.5.0.a in Frameworks */,
+				505D5C181B03678600C9AA44 /* libMobilePayManager1.6.0.a in Frameworks */,
 				2689D45819CACF8C00B63C07 /* CoreFoundation.framework in Frameworks */,
 				2689D45619CACE8C00B63C07 /* CoreGraphics.framework in Frameworks */,
 				2689D45419CACE7800B63C07 /* UIKit.framework in Frameworks */,
@@ -116,15 +116,16 @@
 		2689D44719CAC83200B63C07 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				50DC45141A3F18E200F6F608 /* MobilePayManager.h */,
+				505D5C161B03678600C9AA44 /* libMobilePayManager1.6.0.a */,
+				505D5C171B03678600C9AA44 /* MobilePayManager.h */,
 			);
 			name = Externals;
+			path = MobilePayFruitshop/Externals;
 			sourceTree = "<group>";
 		};
 		2689D44C19CAC9CA00B63C07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50DC45111A3F182100F6F608 /* libMobilePayManager1.5.0.a */,
 				2689D45719CACF8C00B63C07 /* CoreFoundation.framework */,
 				2689D45519CACE8C00B63C07 /* CoreGraphics.framework */,
 				2689D45319CACE7800B63C07 /* UIKit.framework */,
@@ -139,7 +140,6 @@
 				26AC87B819D036C3002D6AD9 /* AboutViewController.m */,
 				26AC87B919D036C3002D6AD9 /* ProductListViewController.h */,
 				26AC87BA19D036C3002D6AD9 /* ProductListViewController.m */,
-				26AC87BB19D036C3002D6AD9 /* ProductViewModel.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,7 +147,8 @@
 		26AC87BC19D036C3002D6AD9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				26AC87BD19D036C3002D6AD9 /* ProductViewModel.h */,
+				26AC87BD19D036C3002D6AD9 /* Product.h */,
+				505D5C191B0367DD00C9AA44 /* Product.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -226,7 +227,7 @@
 				2689D42419CAC79100B63C07 /* AppDelegate.m in Sources */,
 				2689D46419CAD31400B63C07 /* ViewHelper.m in Sources */,
 				26AC87BE19D036C3002D6AD9 /* AboutViewController.m in Sources */,
-				26AC87C219D036C3002D6AD9 /* ProductViewModel.m in Sources */,
+				505D5C1A1B0367DD00C9AA44 /* Product.m in Sources */,
 				2689D42119CAC79100B63C07 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +341,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../../../sdk/iOS/1.5.0/MobilePayManager",
 					"/Users/larselgaardmikkelsen/devel/MobilePay-AppSwitch-SDK/sdk/iOS/1.5.0/MobilePayManager",
+					"$(PROJECT_DIR)/MobilePayFruitshop/Externals",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Fruit Shop";
@@ -357,6 +359,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../../../sdk/iOS/1.5.0/MobilePayManager",
 					"/Users/larselgaardmikkelsen/devel/MobilePay-AppSwitch-SDK/sdk/iOS/1.5.0/MobilePayManager",
+					"$(PROJECT_DIR)/MobilePayFruitshop/Externals",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Fruit Shop";

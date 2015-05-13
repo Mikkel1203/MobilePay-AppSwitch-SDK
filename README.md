@@ -31,4 +31,5 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
  * [Error Handling](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Error-handling)
  * [Parameter Specification](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Parameter-Specification)
  * [Security](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Security)
+ * [Supported OS versions](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Supported-OS-versions)
  * [F.A.Q.](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/F.A.Q.)

@@ -18,7 +18,42 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop"];
+    
+    
+    /*
+     * INFO!!! THIS IS JUST A DEMO APP, WHICH SHOWS A VERY BASIC EXAMPLE OF HOW YOU USE THE APPSWITCH SDK
+     * THIS ONLY DEMONSTRATES A 'SUN SHINE SCENARIO' - YOU HAVE TO HANDLE CANCELLATIONS OR BACKGROUND OR POOR/MISSING NETWORK SCENARIOS YOURSELF!!
+     */
+    
+    
+    /*
+     * This is the constructor. All default values are set in this method, so if you want to override the defaults then do it AFTER this method is called!!
+     * See the MobilePayManager.h file for the defaults of each property
+     * Please don't use the fruitshop urlscheme in your production app - this is a demo!!
+     */
+    //[[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop"];
+    
+    /*
+     * Examples of customizing different values/settings of the SDK
+     * See the MobilePayManager.h file for the defaults of each property
+     */
+    
+    //Reserve/Capture
+    //[[MobilePayManager sharedInstance] setCapture:NO];//this will make a reservation of the money, instead of a instant capture/withdrawal
+    
+    //TimeoutSeconds - this is just an example, but our recommendation is to set it set it high in case the user is on a edge / poor  connection
+    //[[MobilePayManager sharedInstance]setTimeoutSeconds:60];
+    
+    //ReturnSeconds - this is just an example, but our recommendation is to set it set it low.
+    //[[MobilePayManager sharedInstance]setReturnSeconds:3];
+    
+    /*IsMobilePayInstalled
+     * This is the ONLY method that can called before the setupWithMerchantId:, and it checks if AppStore version of MobilePay is installed on the device
+     * if ([[MobilePayManager sharedInstance]isMobilePayInstalled]) {
+     *     [[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop" timeoutSeconds:60 returnSeconds:3 capture:NO];
+     * }
+     */
+    
     return YES;
 }
 
@@ -52,6 +87,12 @@
     } error:^(NSString *orderId, int errorCode, NSString *errorMessage) {
         NSLog(@"MobilePay purchase failed:  Error code '%i' and message '%@'",errorCode,errorMessage);
         [ViewHelper showAlertWithTitle:[NSString stringWithFormat:@"MobilePay Error %i",errorCode] message:errorMessage];
+        /*
+         * An example of using the ErrorCode enum
+         * if (errorCode == ErrorCodeUpdateApp) {
+         *     NSLog(@"You must update your MobilePay app");
+         * }
+         */
     } cancel:^(NSString *orderId) {
         NSLog(@"MobilePay purchase with order id '%@' canceled by user", orderId);
         [ViewHelper showAlertWithTitle:@"MobilePay Canceled" message:@"You canceled the payment flow from MobilePay, please pick a fruit and try again"];
