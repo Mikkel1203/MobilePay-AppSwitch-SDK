@@ -41,6 +41,7 @@ namespace MobilePay.AppSwitchDemo.ViewModel
 
             var payment = new Payment
             {
+                //InstantCapture = false, //If InstantCapture is set to false, this will make a reservation of the money, instead of a instant capture/withdrawel
                 OrderId = Guid.NewGuid().ToString(),
                 ProductPrice = product.Price,
                 ReceiptMessage = "Tak fordi du handlede hos os, nyd din frugt!",

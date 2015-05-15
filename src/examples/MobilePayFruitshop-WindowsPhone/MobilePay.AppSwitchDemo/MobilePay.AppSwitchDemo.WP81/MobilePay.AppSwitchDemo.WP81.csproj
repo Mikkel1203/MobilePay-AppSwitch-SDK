@@ -164,7 +164,7 @@
   <ItemGroup>
     <Reference Include="crypto, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MobilePay.SDK.1.5.0.57\lib\wpa\crypto.dll</HintPath>
+      <HintPath>..\packages\MobilePay.SDK.1.6.0.63\lib\wpa\crypto.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\packages\Portable.MvvmLightLibs.5.0.0.1\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
@@ -180,11 +180,11 @@
     </Reference>
     <Reference Include="MobilePay.SDK.Shared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MobilePay.SDK.1.5.0.57\lib\wpa\MobilePay.SDK.Shared.dll</HintPath>
+      <HintPath>..\packages\MobilePay.SDK.1.6.0.63\lib\wpa\MobilePay.SDK.Shared.dll</HintPath>
     </Reference>
     <Reference Include="MobilePay.SDK.WP81, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MobilePay.SDK.1.5.0.57\lib\wpa\MobilePay.SDK.WP81.dll</HintPath>
+      <HintPath>..\packages\MobilePay.SDK.1.6.0.63\lib\wpa\MobilePay.SDK.WP81.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

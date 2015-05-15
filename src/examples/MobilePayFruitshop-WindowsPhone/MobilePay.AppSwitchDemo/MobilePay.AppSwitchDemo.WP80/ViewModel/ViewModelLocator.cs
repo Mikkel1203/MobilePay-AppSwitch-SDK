@@ -45,6 +45,9 @@ namespace MobilePay.AppSwitchDemo.ViewModel
             //Setup IMobilePayService for app switch
             SimpleIoc.Default.Register<IMobilePayService>(() =>
             {
+                //The following configuration is only for this DEMO App.
+                //Your app should use it own merchantId, successCallbackFileExtension and failureCallbackUrl.
+                //Do not use "fruitshop" and "fruitshop:failure". Instead use for example for app name as the fileExtension and callback url. "shortappname" and "shortappname:failure".
                 return new MobilePayService("APPDK0000000000", "fruitshop", "fruitshop:failure");
             });
         }
