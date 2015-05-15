@@ -30,6 +30,9 @@ public class MainActivity extends ListActivity {
         // Initialize MobilePay with your own Merchant ID.
         MobilePay.getInstance().init(getString(R.string.merchant_id_generic));
 
+        // MobilePay has some global settings. These can be used to tweak the payment flow if needed. None of these are required.
+        tweakPaymentSettings();
+
         // Create some dummy items and setup the list adapter.
         ArrayList<Product> products = new ArrayList<>();
         products.add(new Product(getString(R.string.product_name_orange), new BigDecimal(10), R.drawable.orange));
@@ -40,6 +43,15 @@ public class MainActivity extends ListActivity {
         adapter = new ProductAdapter(this, products);
 
         setListAdapter(adapter);
+    }
+
+    private void tweakPaymentSettings() {
+        // Determines if the payment should be captured right away. Be aware that setting this to false requires a separate system to validate and capture the payment. Default is true.
+        MobilePay.getInstance().setInstantCapture(true);
+        // Set the number of seconds from the MobilePay receipt are shown to the user returns to the merchant app. Default is 5.
+        MobilePay.getInstance().setReturnSeconds(5);
+        // Set the number of seconds the user has to complete the payment. Default is 0, which is no timeout.
+        MobilePay.getInstance().setTimeoutSeconds(0);
     }
 
     @Override
@@ -67,10 +79,10 @@ public class MainActivity extends ListActivity {
         Intent paymentIntent = MobilePay.getInstance().createPaymentIntent(payment);
 
         // Query the SDK to see if MobilePay is present on the system.
-        boolean isMobilePayInstalled = MobilePay.getInstance().isMobilePayInstalled(this);
+        boolean isMobilePayInstalled = MobilePay.getInstance().isMobilePayInstalled(getApplicationContext());
 
         if (isMobilePayInstalled) {
-            // Start a new activity with the Intent and a specific request code.
+            // Call startActivityForResult with the Intent and a specific request code of your choice. Wait for the selected request code in OnActivityResult.
             startActivityForResult(paymentIntent, MOBILEPAY_PAYMENT_REQUEST_CODE);
         } else {
             // Error dialog, with possible download.
@@ -101,9 +113,10 @@ public class MainActivity extends ListActivity {
                     // The payment failed. FailureResult holds further information.
 
                     // Example of how to catch a specific MobilePay error code.
-                    if(result.getErrorCode() == MobilePay.ERROR_RESULT_CODE_UPDATE_APP){
+                    if (result.getErrorCode() == MobilePay.ERROR_RESULT_CODE_UPDATE_APP) {
                         // Notify the user to update MobilePay.
                         showPaymentResultDialog(getString(R.string.payment_result_dialog_error_update_title), getString(R.string.payment_result_dialog_error_update_message));
+                        return;
                     }
 
                     // Show dialog with error code and message.
@@ -113,7 +126,6 @@ public class MainActivity extends ListActivity {
                 @Override
                 public void onCancel() {
                     // The payment was cancelled.
-
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_cancelled_title), getString(R.string.payment_result_dialog_cancelled_message));
                 }
             });
@@ -137,7 +149,7 @@ public class MainActivity extends ListActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Create a MobilePay download Intent.
-                        Intent intent = MobilePay.getInstance().createDownloadMobilePayIntent(getBaseContext());
+                        Intent intent = MobilePay.getInstance().createDownloadMobilePayIntent(getApplicationContext());
                         startActivity(intent);
                     }
                 })
