@@ -29,30 +29,31 @@
     /*
      * This is the constructor. All default values are set in this method, so if you want to override the defaults then do it AFTER this method is called!!
      * See the MobilePayManager.h file for the defaults of each property
-     * Please don't use the fruitshop urlscheme in your production app - this is a demo!!
+     * Please don't use the fruitshop urlscheme in your production app!!
      */
-    //[[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop"];
+    [[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop"];
     
     /*
      * Examples of customizing different values/settings of the SDK
      * See the MobilePayManager.h file for the defaults of each property
      */
     
-    //Reserve/Capture
-    //[[MobilePayManager sharedInstance] setCapture:NO];//this will make a reservation of the money, instead of a instant capture/withdrawal
-    
-    //TimeoutSeconds - this is just an example, but our recommendation is to set it set it high in case the user is on a edge / poor  connection
-    //[[MobilePayManager sharedInstance]setTimeoutSeconds:60];
-    
-    //ReturnSeconds - this is just an example, but our recommendation is to set it set it low.
-    //[[MobilePayManager sharedInstance]setReturnSeconds:3];
-    
-    /*IsMobilePayInstalled
+    /* IsMobilePayInstalled
      * This is the ONLY method that can called before the setupWithMerchantId:, and it checks if AppStore version of MobilePay is installed on the device
      * if ([[MobilePayManager sharedInstance]isMobilePayInstalled]) {
      *     [[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop" timeoutSeconds:60 returnSeconds:3 capture:NO];
+     *     [[MobilePayManager sharedInstance] setCapture:NO];
      * }
      */
+    
+    //Reserve/Capture
+    //[[MobilePayManager sharedInstance] setCapture:NO];//this will make a reservation of the money, instead of a instant capture/withdrawal. Default is YES.
+    
+    //TimeoutSeconds - this is just an example, but our recommendation is to set it set it high in case the user is on a edge / poor  connection
+    //[[MobilePayManager sharedInstance]setTimeoutSeconds:90];
+    
+    //ReturnSeconds - this is just an example, but our recommendation is to set it set it low.
+    //[[MobilePayManager sharedInstance]setReturnSeconds:5];
     
     return YES;
 }
