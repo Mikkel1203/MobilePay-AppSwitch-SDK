@@ -9,15 +9,13 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
 
 3 - The user confirms the payment.
 
-4 - The receipt is shown and the user can either tap "videre" or wait for five seconds.
+4 - The receipt is shown and the user can either tap "videre" or wait for five seconds. A counter is showing the time remaining.
 
 5 - MobilePay switches back to your own app together with a MobilePay transactionId.
 
 
 ## Requirements
-* You have a MobilePay business agreement with Danske Bank. Read more at [MobilePay Business](https://www.danskebank.dk/da-dk/Erhverv/pages/mobilepaybusiness.aspx).
-* You have received a MerchantId from Danske Bank that you must use when communicating through the SDK.
-* You have downloaded the latest SDK for the wanted platform - [AppSwitch SDK](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/tree/master/sdk).
+* Please look at the Danske Bank Developer Site for further details [Danske Bank Developer site](http://danskebank.dk/da-dk/mobilepay/pages/app-switch.aspx)
 
   [1]: https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/blob/master/doc/wiki/images/mobilepay_appswitch_purchase_flow.png "MobilePay AppSwitch purchase flow"
 
@@ -29,7 +27,4 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
  * [Getting started on Android](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Getting-started-on-Android)
  * [Getting Started on Windows Phone](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Getting-Started-on-Windows-Phone)
  * [Error Handling](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Error-handling)
- * [Parameter Specification](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Parameter-Specification)
- * [Security](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Security)
  * [Supported OS versions](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Supported-OS-versions)
- * [F.A.Q.](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/F.A.Q.)
