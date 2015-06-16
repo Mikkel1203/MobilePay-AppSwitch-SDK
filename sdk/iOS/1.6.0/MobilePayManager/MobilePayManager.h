@@ -5,7 +5,11 @@
 //  Copyright (c) 2014 Trifork A/S All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import UIKit;
+@import CoreGraphics;
+@import CoreImage;
+
 
 typedef NS_ENUM(NSInteger, ErrorCode) {
     ErrorCodeUnknown,
@@ -36,8 +40,8 @@ typedef NS_ENUM(NSInteger, ErrorCode) {
 /**
  * merchantId: merchant id delivered from DanskeBank MobilePay through your MobilePay business agreement
  * urlscheme: urlscheme for your app setup under UrlIdentifier in your info.plist (this needs to be done to enable app switching in general)
- * timeoutseconds: seconds that you allow the user to spend in the MobilePay app before returning to the merchant app, if exceeded when you try to swipe in Mobile Pay errorcode 8 is returned
- * returnseconds: seconds spend on the MobilePay receipt screen before returning to the merchant app
+ * timeoutseconds: seconds that you allow the user to spend in the MobilePay app before returning to the merchant app, if exceeded when you try to swipe in Mobile Pay errorcode 8 is returned. Default is 0 = never timeout
+ * returnseconds: seconds spend on the MobilePay receipt screen before returning to the merchant app. Default is 5 seconds
  * capture: Determines if the payment is a reservation or instant capture - default is Yes for instant capture
  */
 -(void) setupWithMerchantId:(NSString *)merchantId merchantUrlScheme:(NSString *)merchantUrlScheme timeoutSeconds:(int)timeoutSeconds returnSeconds:(int)returnSeconds capture:(BOOL)capture;
@@ -82,6 +86,8 @@ typedef NS_ENUM(NSInteger, ErrorCode) {
  *  9 = Invalid signature
  * 10 = MobilePay SDK version is outdated
  * 11 = The given OrderId is already used. An OrderId has to be unique.
+ *
+ * Most of there errors are technical errors (1,2,4,5,9,10,11) that must be presented as a generic error message without details to the user, where others SHOULD BE HANDLED BY YOUR APP (3,6,7,8) to guide the user in the right direction.
  */
 -(void) handleMobilePayCallbacksWithUrl:(NSURL *)url success:(void (^)(NSString *orderId, NSString *transactionId, NSString *signature))successBlock error:(void (^)(NSString *orderId, int errorCode, NSString *errorMessage))errorBlock cancel:(void (^)(NSString *orderId))cancelBlock;
 
@@ -106,12 +112,12 @@ typedef NS_ENUM(NSInteger, ErrorCode) {
 @property (nonatomic) NSString *merchantId;
 
 /**
- * a time limit you set for which the user must have swiped in MobilePay to confirm the purchase. if exceeded errorcode 8 is returned. 
+ * a time limit you set for which the user must have swiped in MobilePay to confirm the purchase. if exceeded errorcode 8 is returned. Default is 0 = never timeout
  */
 @property (nonatomic) int timeoutSeconds;
 
 /**
- * seconds spend on the MobilePay receipt screen before returning to the merchant app
+ * seconds spend on the MobilePay receipt screen before returning to the merchant app - Default is 5 seconds
  */
 @property (nonatomic) int returnSeconds;
 
