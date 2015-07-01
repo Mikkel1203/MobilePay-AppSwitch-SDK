@@ -13,9 +13,11 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
 
 5 - MobilePay switches back to your own app together with a MobilePay transactionId.
 
+## Support
+For technical questions about the MobilePay AppSwitch SDK or other related questions, please contact Danske Bank at **+45 70 114 115** or [kundesupport@danskebank.dk](mailto://kundesupport@danskebank.dk)
 
 ## Requirements
-* Please look at the Danske Bank Developer Site for further details [Danske Bank Developer site](http://danskebank.dk/da-dk/mobilepay/pages/app-switch.aspx)
+Please look at the Danske Bank Developer Site for further details [Danske Bank Developer site](http://danskebank.dk/da-dk/mobilepay/pages/app-switch.aspx)
 
   [1]: https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/blob/master/doc/wiki/images/mobilepay_appswitch_purchase_flow.png "MobilePay AppSwitch purchase flow"
 
