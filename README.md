@@ -9,7 +9,7 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
 
 3 - The user confirms the payment.
 
-4 - The receipt is shown and the user can either tap "videre" or wait for five seconds. A counter is showing the time remaining.
+4 - The receipt is shown and the user can either tap "videre" or wait one second. A counter is showing the time remaining.
 
 5 - MobilePay switches back to your own app together with a MobilePay transactionId.
 
