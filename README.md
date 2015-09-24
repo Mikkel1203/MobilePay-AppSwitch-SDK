@@ -29,4 +29,8 @@ Please look at the Danske Bank Developer Site for further details [Danske Bank D
  * [Getting started on Android](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Getting-started-on-Android)
  * [Getting Started on Windows Phone](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Getting-Started-on-Windows-Phone)
  * [Error Handling](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Error-handling)
+ * [Parameter Specification](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Parameter-Specification)
+ * [Security](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Security)
  * [Supported OS versions](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Supported-OS-versions)
+ * [Known Errors](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Known-errors)
+ * [Cross-platform](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Cross-platform)
