@@ -75,12 +75,16 @@
     NSString *orderId = @"123456";
     if (product && (receiptMessage.length > 0) && (orderId.length > 0)) {
         [[MobilePayManager sharedInstance] beginMobilePaymentWithOrderId:orderId productPrice:product.price receiptMessage:receiptMessage error:^(NSError *error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription
-                                                            message:[NSString stringWithFormat:@"reason: %@, suggestion: %@",error.localizedFailureReason, error.localizedRecoverySuggestion]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"Install MobilePay",nil];
-            [alert show];
+            /*
+             * This has temporarily disabled due to an error in the SDK. This will be fixed in the next release of the SDK
+             * https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Known-errors
+             */
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription
+//                                                            message:[NSString stringWithFormat:@"reason: %@, suggestion: %@",error.localizedFailureReason, error.localizedRecoverySuggestion]
+//                                                           delegate:self
+//                                                  cancelButtonTitle:@"Cancel"
+//                                                  otherButtonTitles:@"Install MobilePay",nil];
+//            [alert show];
         }];
     }else{
         self.errorInOrderAlertView = [[UIAlertView alloc] initWithTitle:@"Error in your order"
