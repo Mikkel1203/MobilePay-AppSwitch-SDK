@@ -24,6 +24,9 @@ Please look at the Danske Bank Developer Site for further details [Danske Bank D
 ## MerchantID for test purposes
 **APPDK0000000000** can be used for test purposes. When the test merchantId is used you are able to complete the payment flow without transferring any money.
 
+## Cross-platform
+Please look at the wiki page for further details [wiki site](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Cross-platform)
+
 ## Documentation
  * [Getting Started on iPhone](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Getting-Started-on-iPhone)
  * [Getting started on Android](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Getting-started-on-Android)
