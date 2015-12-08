@@ -43,9 +43,7 @@ namespace MobilePay.AppSwitchDemo.ViewModel
             {
                 //InstantCapture = false, //If InstantCapture is set to false, this will make a reservation of the money, instead of a instant capture/withdrawel
                 OrderId = Guid.NewGuid().ToString(),
-                ProductPrice = product.Price,
-                ReceiptMessage = "Tak fordi du handlede hos os, nyd din frugt!",
-                ProductName = product.Title
+                ProductPrice = product.Price
             };
 
             var uri = mobilePayService.CreatePaymentLaunchUri(payment);
