@@ -18,7 +18,7 @@
 		2689D46419CAD31400B63C07 /* ViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2689D46319CAD31400B63C07 /* ViewHelper.m */; };
 		26AC87BE19D036C3002D6AD9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87B819D036C3002D6AD9 /* AboutViewController.m */; };
 		26AC87C019D036C3002D6AD9 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC87BA19D036C3002D6AD9 /* ProductListViewController.m */; };
-		50284C2F1B95E29D002F1B30 /* libMobilePayManager1.6.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50284C2E1B95E29D002F1B30 /* libMobilePayManager1.6.2.a */; };
+		505158D71C17088C002631D2 /* libMobilePayManager1.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 505158D21C17088C002631D2 /* libMobilePayManager1.7.0.a */; };
 		505D5C1A1B0367DD00C9AA44 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D5C191B0367DD00C9AA44 /* Product.m */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +41,11 @@
 		26AC87B919D036C3002D6AD9 /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		26AC87BA19D036C3002D6AD9 /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
 		26AC87BD19D036C3002D6AD9 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		50284C2E1B95E29D002F1B30 /* libMobilePayManager1.6.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobilePayManager1.6.2.a; sourceTree = "<group>"; };
-		505D5C171B03678600C9AA44 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayManager.h; sourceTree = "<group>"; };
+		505158D21C17088C002631D2 /* libMobilePayManager1.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobilePayManager1.7.0.a; sourceTree = "<group>"; };
+		505158D31C17088C002631D2 /* MobilePayCancelledPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayCancelledPayment.h; sourceTree = "<group>"; };
+		505158D51C17088C002631D2 /* MobilePayPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayPayment.h; sourceTree = "<group>"; };
+		505158D61C17088C002631D2 /* MobilePaySuccessfulPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePaySuccessfulPayment.h; sourceTree = "<group>"; };
+		505158D81C1708D4002631D2 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayManager.h; sourceTree = "<group>"; };
 		505D5C191B0367DD00C9AA44 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,8 +55,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2689D45819CACF8C00B63C07 /* CoreFoundation.framework in Frameworks */,
+				505158D71C17088C002631D2 /* libMobilePayManager1.7.0.a in Frameworks */,
 				2689D45619CACE8C00B63C07 /* CoreGraphics.framework in Frameworks */,
-				50284C2F1B95E29D002F1B30 /* libMobilePayManager1.6.2.a in Frameworks */,
 				2689D45419CACE7800B63C07 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,8 +119,11 @@
 		2689D44719CAC83200B63C07 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				50284C2E1B95E29D002F1B30 /* libMobilePayManager1.6.2.a */,
-				505D5C171B03678600C9AA44 /* MobilePayManager.h */,
+				505158D81C1708D4002631D2 /* MobilePayManager.h */,
+				505158D21C17088C002631D2 /* libMobilePayManager1.7.0.a */,
+				505158D31C17088C002631D2 /* MobilePayCancelledPayment.h */,
+				505158D51C17088C002631D2 /* MobilePayPayment.h */,
+				505158D61C17088C002631D2 /* MobilePaySuccessfulPayment.h */,
 			);
 			name = Externals;
 			path = MobilePayFruitshop/Externals;
