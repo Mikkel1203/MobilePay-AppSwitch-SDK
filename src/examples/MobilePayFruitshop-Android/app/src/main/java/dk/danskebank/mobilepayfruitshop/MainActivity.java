@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import dk.danskebank.mobilepay.sdk.CaptureType;
+import dk.danskebank.mobilepay.sdk.Country;
 import dk.danskebank.mobilepay.sdk.MobilePay;
 import dk.danskebank.mobilepay.sdk.ResultCallback;
 import dk.danskebank.mobilepay.sdk.model.FailureResult;
@@ -27,10 +29,10 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize MobilePay with your own Merchant ID.
-        MobilePay.getInstance().init(getString(R.string.merchant_id_generic));
+        // Initialize the AppSwitch SDK with your own Merchant ID. A country can also be provided to target specific MobilePay apps (default is DK). It is important that init() is called before everything else since it resets all settings.
+        MobilePay.getInstance().init(getString(R.string.merchant_id_generic), Country.DENMARK);
 
-        // MobilePay has some global settings. These can be used to tweak the payment flow if needed. None of these are required.
+        // The AppSwitch SDK has some global settings. These can be used to tweak the payment flow if needed. None of these are required.
         tweakPaymentSettings();
 
         // Create some dummy items and setup the list adapter.
@@ -46,10 +48,10 @@ public class MainActivity extends ListActivity {
     }
 
     private void tweakPaymentSettings() {
-        // Determines if the payment should be captured right away. Be aware that setting this to false requires a separate system to validate and capture the payment. Default is true.
-        MobilePay.getInstance().setInstantCapture(true);
-        // Set the number of seconds from the MobilePay receipt are shown to the user returns to the merchant app. Default is 5.
-        MobilePay.getInstance().setReturnSeconds(5);
+        // Determines which type of payment you would like to start. CAPTURE, RESERVE and PARTIAL CAPTURE are the possibilities. CAPTURE is default. See the GitHub wiki for more information on each type.
+        MobilePay.getInstance().setCaptureType(CaptureType.CAPTURE);
+        // Set the number of seconds from the MobilePay receipt are shown to the user returns to the merchant app. Default is 1.
+        MobilePay.getInstance().setReturnSeconds(1);
         // Set the number of seconds the user has to complete the payment. Default is 0, which is no timeout.
         MobilePay.getInstance().setTimeoutSeconds(0);
     }
@@ -58,6 +60,7 @@ public class MainActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
+        // Get product from the list.
         Product product = adapter.getItem(position);
 
         // Create a new MobilePay Payment object.
@@ -66,30 +69,26 @@ public class MainActivity extends ListActivity {
         // Set the product price.
         payment.setProductPrice(product.getPrice());
 
-        // Set the product name.
-        payment.setProductName(product.getName());
-
-        // Set the message shown at the bottom of the receipt in MobilePay.
-        payment.setReceiptMessage(getString(R.string.payment_receipt_message));
+        // Set BulkRef for this payment. Payments will be grouped under this tag.
+        payment.setBulkRef(getString(R.string.product_group));
 
         // Set the order ID. This is your reference and should match your business case. Has to be unique.
         payment.setOrderId(UUID.randomUUID().toString());
 
-        // Create an Intent with the Payment specified.
+        // Have the SDK create an Intent with the Payment object specified.
         Intent paymentIntent = MobilePay.getInstance().createPaymentIntent(payment);
 
         // Query the SDK to see if MobilePay is present on the system.
         boolean isMobilePayInstalled = MobilePay.getInstance().isMobilePayInstalled(getApplicationContext());
 
+        // If we determine that MobilePay is installed we start an AppSwitch payment, else we could lead the user to Google Play to download the app.
         if (isMobilePayInstalled) {
             // Call startActivityForResult with the Intent and a specific request code of your choice. Wait for the selected request code in OnActivityResult.
             startActivityForResult(paymentIntent, MOBILEPAY_PAYMENT_REQUEST_CODE);
         } else {
-            // Error dialog, with possible download.
+            // Inform the user that MobilePay is not installed and lead them to Google Play.
             downloadMobilePayApp();
         }
-
-
     }
 
     @Override
@@ -99,18 +98,22 @@ public class MainActivity extends ListActivity {
         if (requestCode == MOBILEPAY_PAYMENT_REQUEST_CODE) {
             // We received a payment response matching our request code.
 
+            // We call the AppSwitch SDK with resultCode and data. The SDK will handle any validation if needed and determine if the payment succeeded.
             MobilePay.getInstance().handleResult(resultCode, data, new ResultCallback() {
                 @Override
                 public void onSuccess(SuccessResult result) {
-                    // The payment succeeded. SuccessResult holds further information.
+                    // The payment succeeded. SuccessResult object holds further information.
 
-                    // Show dialog with transaction id from MobilePay.
+                    // The product can now be delivered to the customer.
+
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_success_title), getString(R.string.payment_result_dialog_success_message, result.getTransactionId()));
                 }
 
                 @Override
                 public void onFailure(FailureResult result) {
-                    // The payment failed. FailureResult holds further information.
+                    // The payment failed. FailureResult object holds further information.
+
+                    // You should inform the user why the error happened. See the list of possible error codes for more information.
 
                     // Example of how to catch a specific MobilePay error code.
                     if (result.getErrorCode() == MobilePay.ERROR_RESULT_CODE_UPDATE_APP) {
@@ -119,13 +122,12 @@ public class MainActivity extends ListActivity {
                         return;
                     }
 
-                    // Show dialog with error code and message.
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_error_title, String.valueOf(result.getErrorCode())), result.getErrorMessage());
                 }
 
                 @Override
                 public void onCancel() {
-                    // The payment was cancelled.
+                    // The payment was cancelled, which means the user jumped back from MobilePay before processing the payment.
                     showPaymentResultDialog(getString(R.string.payment_result_dialog_cancelled_title), getString(R.string.payment_result_dialog_cancelled_message));
                 }
             });
@@ -133,6 +135,7 @@ public class MainActivity extends ListActivity {
     }
 
     private void showPaymentResultDialog(String title, String content) {
+        // In this demo app we show a simple dialog with information of the transaction.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title)
                 .setMessage(content)
@@ -142,6 +145,7 @@ public class MainActivity extends ListActivity {
     }
 
     private void downloadMobilePayApp() {
+        // Simple dialog informing the user about the missing MobilePay app and offering them to install it from Google Play.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.install_mobilepay_dialog_title))
                 .setMessage(getString(R.string.install_mobilepay_dialog_message))

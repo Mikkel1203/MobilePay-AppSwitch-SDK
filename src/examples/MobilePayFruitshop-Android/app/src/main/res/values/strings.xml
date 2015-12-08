@@ -4,13 +4,13 @@
     <string name="app_name">Fruitshop</string>
     <string name="merchant_id_generic">APPDK0000000000</string>
 
+    <string name="product_group">Fruit</string>
     <string name="product_name_orange">Orange</string>
     <string name="product_name_kiwi">Kiwi</string>
     <string name="product_name_strawberry">Strawberry</string>
     <string name="product_name_basket">Fruit basket</string>
     <string name="product_price">%1$s kr.</string>
 
-    <string name="payment_receipt_message">Eat fruit every day</string>
     <string name="payment_result_dialog_success_title">MobilePay Succeeded</string>
     <string name="payment_result_dialog_positive">OK</string>
     <string name="payment_result_dialog_success_message">You have now paid with MobilePay.\n\nYour MobilePay transactionId is \'%1$s\'.</string>
