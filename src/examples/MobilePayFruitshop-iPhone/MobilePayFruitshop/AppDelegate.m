@@ -42,9 +42,14 @@
     
     // IsMobilePayInstalled
     //  This is the ONLY method that can called before the setupWithMerchantId:, and it checks if AppStore version of MobilePay is installed on the device
-    //if ([[MobilePayManager sharedInstance]isMobilePayInstalled]) {
+    //  Currently there is a version of the mobilepay app in three countries and therefore three urlschemes:
+    //  Denmark: mobilepay://
+    //  Norway: mobilepayno://
+    //  Finland: mobilepayfi://
+    //
+    //  if ([[MobilePayManager sharedInstance]isMobilePayInstalled:MobilePayCountry_Denmark]) {
     //      [[MobilePayManager sharedInstance] setupWithMerchantId:@"APPDK0000000000" merchantUrlScheme:@"fruitshop" timeoutSeconds:60 returnSeconds:3 captureType:MobilePayCaptureType_Capture country:MobilePayCountry_Denmark];
-    //}
+    //  }
     
     
     //Reserve/Capture
@@ -54,7 +59,7 @@
     //[[MobilePayManager sharedInstance]setTimeoutSeconds:90];
     
     //ReturnSeconds - this is just an example, but our recommendation is to set it set it low.
-    //[[MobilePayManager sharedInstance]setReturnSeconds:5];
+    //[[MobilePayManager sharedInstance]setReturnSeconds:2];
     
     return YES;
 }
@@ -101,8 +106,8 @@
         NSString *orderId = mobilePaySuccessfulPayment.orderId;
         NSString *transactionId = mobilePaySuccessfulPayment.transactionId;
         NSString *amountWithdrawnFromCard = [NSString stringWithFormat:@"%f",mobilePaySuccessfulPayment.amountWithdrawnFromCard];
-        NSLog(@"MobilePay purchase succeeded: Your have now payed for order with id '%@' and MobilePay transaction id '%@' and the amount withdrawn from the card is: '%@'", orderId, transactionId,amountWithdrawnFromCard);
-        [ViewHelper showAlertWithTitle:@"MobilePay Succeeded" message:[NSString stringWithFormat:@"You have now payed with MobilePay. Your MobilePay transactionId is '%@'", transactionId]];
+        NSLog(@"MobilePay purchase succeeded: Your have now paid for order with id '%@' and MobilePay transaction id '%@' and the amount withdrawn from the card is: '%@'", orderId, transactionId,amountWithdrawnFromCard);
+        [ViewHelper showAlertWithTitle:@"MobilePay Succeeded" message:[NSString stringWithFormat:@"You have now paid with MobilePay. Your MobilePay transactionId is '%@'", transactionId]];
         
     } error:^(NSError * _Nonnull error) {
         NSDictionary *dict = error.userInfo;
@@ -115,8 +120,8 @@
         //    NSLog(@"You must update your MobilePay app");
         //}
     } cancel:^(MobilePayCancelledPayment * _Nullable mobilePayCancelledPayment) {
-        NSLog(@"MobilePay purchase with order id '%@' canceled by user", mobilePayCancelledPayment.orderId);
-        [ViewHelper showAlertWithTitle:@"MobilePay Canceled" message:@"You canceled the payment flow from MobilePay, please pick a fruit and try again"];
+        NSLog(@"MobilePay purchase with order id '%@' cancelled by user", mobilePayCancelledPayment.orderId);
+        [ViewHelper showAlertWithTitle:@"MobilePay Canceled" message:@"You cancelled the payment flow from MobilePay, please pick a fruit and try again"];
         
     }];
 

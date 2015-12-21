@@ -201,10 +201,43 @@ DEPRECATED_MSG_ATTRIBUTE("Use setupWithMerchantId:(NSString * __nonnull)merchant
  * Most of there errors are technical errors (1,2,4,5,9,10,11) that must be presented as a generic error message without details to the user, where others SHOULD BE HANDLED BY YOUR APP (3,6,7,8,12) to guide the user in the right direction.
  */
 
-
 -(void)handleMobilePayCallbacksWithUrl:(NSURL * __nonnull)url success:(__nonnull MobilePayCallbackSuccessBlock)successBlock error:(__nullable MobilePayCallbackErrorBlock)errorBlock cancel:(__nullable MobilePayCallbackCancelBlock)cancelBlock DEPRECATED_MSG_ATTRIBUTE("Use handleMobilePayCallbacksWithUrl:(NSURL * __nonnull)url success:(__nonnull MobilePaySuccessfulPayment)successfulBlock error:(__nullable MobilePayCallbackErrorBlock)errorBlock cancel:(__nullable MobilePayCallbackCancelBlock)cancelBlock instead");
 
 -(void)handleMobilePayPaymentWithUrl:(NSURL * __nonnull)url success:(__nullable MobilePayPaymentSuccessBlock)successfulBlock error:(__nullable MobilePayPaymentErrorBlock)errorBlock cancel:(__nullable MobilePayPaymentCancelledBlock)cancelBlock;
+
+/**
+ *Checks if url can be opened, and it will only for check for the appstore version of MobilePay
+ *
+ *Currently the mobilepay app is available in three countries, and each 'Country' has it's own urlscheme:
+ *
+ *Denmark: mobilepay://
+ *Norway: mobilepayno://
+ *Finland: mobilepayfi://
+ *
+ * When running iOS9 SDK / Xcode7 you need to whitelist the MobilePay URL, before you can use this method.
+ *
+ *if you want to check for the Danish version of MobilePay, then add the following:
+ * <key>LSApplicationQueriesSchemes</key>
+ * <array>
+ * <string>mobilepay</string>
+ * <string>yourotherurlschemes</string>
+ * </array>
+ *
+ *if you want to check for the Norwegian version of MobilePay, then add the following:
+ * <key>LSApplicationQueriesSchemes</key>
+ * <array>
+ * <string>mobilepayno</string>
+ * <string>yourotherurlschemes</string>
+ * </array>
+ *
+ *if you want to check for the Finish version of MobilePay, then add the following:
+ * <key>LSApplicationQueriesSchemes</key>
+ * <array>
+ * <string>mobilepayfi</string>
+ * <string>yourotherurlschemes</string>
+ * </array>
+ */
+-(BOOL)isMobilePayInstalled:(MobilePayCountry)country;
 
 /**
  * capture: Determines if the payment is a reservation or instant capture - default is Yes for instant capture
@@ -215,7 +248,6 @@ DEPRECATED_MSG_ATTRIBUTE("Use setupWithMerchantId:(NSString * __nonnull)merchant
  * capture: Determines if the payment is a reservation, instant capture or  - default is "Capture" for instant capture
  */
 @property (nonatomic) MobilePayCaptureType captureType;
-
 
 /**
  * Country
@@ -253,7 +285,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use setupWithMerchantId:(NSString * __nonnull)merchant
 @property (nonatomic) int returnSeconds;
 
 /**
- * checks if mobilepay:// url can be opened, and it'll only for check for the appstore version of MobilePay
+ * checks if mobilepay:// url can be opened, and it will only for check for the appstore version of MobilePay
  * 
  * When running iOS9 SDK / Xcode7 you need to whitelist the MobilePay URL, before you can use this method.
  *
@@ -263,7 +295,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use setupWithMerchantId:(NSString * __nonnull)merchant
  * <string>yourotherurlschemes</string>
  * </array>
  */
-@property (nonatomic, readonly) BOOL isMobilePayInstalled;
+@property (nonatomic, readonly) BOOL isMobilePayInstalled DEPRECATED_MSG_ATTRIBUTE("Use isMobilePayInstalled:(MobilePayCountry)country instead.");
 
 /*
  * the urls for the different versions of MobilePay in AppStore

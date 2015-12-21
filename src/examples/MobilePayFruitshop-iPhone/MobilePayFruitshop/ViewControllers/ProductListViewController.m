@@ -9,6 +9,7 @@
 #import "ProductListViewController.h"
 #import "Product.h"
 #import "MobilePayManager.h"
+#import "MobilePayPayment.h"
 
 @interface ProductListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
@@ -71,21 +72,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Product *product = [self.products objectAtIndex:indexPath.row];
-    NSString *receiptMessage = @"Tak for dit køb, nyd din frugt!";
-    NSString *orderId = @"123456";
-    if (product && (receiptMessage.length > 0) && (orderId.length > 0)) {
-        [[MobilePayManager sharedInstance] beginMobilePaymentWithOrderId:orderId productPrice:product.price receiptMessage:receiptMessage error:^(NSError *error) {
-            /*
-             * This has temporarily disabled due to an error in the SDK. This will be fixed in the next release of the SDK
-             * https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Known-errors
-             */
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription
-//                                                            message:[NSString stringWithFormat:@"reason: %@, suggestion: %@",error.localizedFailureReason, error.localizedRecoverySuggestion]
-//                                                           delegate:self
-//                                                  cancelButtonTitle:@"Cancel"
-//                                                  otherButtonTitles:@"Install MobilePay",nil];
-//            [alert show];
+    
+    MobilePayPayment *payment = [[MobilePayPayment alloc]initWithOrderId:@"123456" productPrice:product.price];
+    
+    if (payment && (payment.orderId.length > 0) && (payment.productPrice >= 0)) {
+        
+        [[MobilePayManager sharedInstance]beginMobilePaymentWithPayment:payment error:^(NSError * _Nonnull error) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription
+                                                            message:[NSString stringWithFormat:@"reason: %@, suggestion: %@",error.localizedFailureReason, error.localizedRecoverySuggestion]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Install MobilePay",nil];
+            [alert show];
+            
         }];
+        
     }else{
         self.errorInOrderAlertView = [[UIAlertView alloc] initWithTitle:@"Error in your order"
                                                         message:@"One or more parameters in your order is invalid"
@@ -103,6 +105,9 @@
 {
     if((buttonIndex == 1) && (![alertView isEqual:self.errorInOrderAlertView])) /* NO = 0, YES = 1 */
     {
+        //This could also be the Norwegian or the Finish app you want to link to - this is just an example
+        //[MobilePayManager sharedInstance].mobilePayAppStoreLinkNO
+        //[MobilePayManager sharedInstance].mobilePayAppStoreLinkFI
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[MobilePayManager sharedInstance].mobilePayAppStoreLinkDK]];
     }
 }

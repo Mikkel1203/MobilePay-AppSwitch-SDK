@@ -24,7 +24,7 @@ namespace MobilePay.AppSwitchDemo.Services
 
         public async void Success(SuccessResult result)
         {
-            var message = string.Format("You have now payed with MobilePay.\nYour MobilePay transactionId is '{0}'", result.TransactionId);
+            var message = string.Format("You have now paid with MobilePay.\nYour MobilePay transactionId is '{0}'", result.TransactionId);
             var title = "MobilePay Succeeded";
 #if SILVERLIGHT
             System.Windows.MessageBox.Show(message, title, System.Windows.MessageBoxButton.OK);

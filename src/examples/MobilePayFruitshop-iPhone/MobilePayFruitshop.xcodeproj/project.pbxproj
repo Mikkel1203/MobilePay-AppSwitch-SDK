@@ -185,7 +185,7 @@
 		2689D41319CAC79100B63C07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "DanskeBank A/S";
 				TargetAttributes = {
 					2689D41A19CAC79100B63C07 = {
@@ -279,7 +279,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -320,6 +322,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -351,6 +354,7 @@
 					"$(PROJECT_DIR)/MobilePayFruitshop/Externals",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danskebank.mobilepay.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Fruit Shop";
 			};
 			name = Debug;
@@ -370,6 +374,7 @@
 					"$(PROJECT_DIR)/MobilePayFruitshop/Externals",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danskebank.mobilepay.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Fruit Shop";
 			};
 			name = Release;
