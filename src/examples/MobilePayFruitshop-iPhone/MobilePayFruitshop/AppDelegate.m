@@ -93,6 +93,13 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //IMPORTANT - THIS IS DEPRECATED IN IOS9 - USE 'application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options' INSTEAD
+    [self handleMobilePayPaymentWithUrl:url];
+    return YES;
+}
+
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
  
     //IMPORTANT - THIS IS DEPRECATED IN IOS9 - USE 'application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options' INSTEAD
@@ -115,6 +122,8 @@
         NSLog(@"MobilePay purchase failed:  Error code '%li' and message '%@'",(long)error.code,errorMessage);
         [ViewHelper showAlertWithTitle:[NSString stringWithFormat:@"MobilePay Error %li",(long)error.code] message:errorMessage];
         
+        //Show an appropriate error message to the user. Check MobilePayManager.h for a complete description of the error codes
+        
         //An example of using the MobilePayErrorCode enum
         //if (error.code == MobilePayErrorCodeUpdateApp) {
         //    NSLog(@"You must update your MobilePay app");
@@ -124,7 +133,6 @@
         [ViewHelper showAlertWithTitle:@"MobilePay Canceled" message:@"You cancelled the payment flow from MobilePay, please pick a fruit and try again"];
         
     }];
-
 }
 
 @end
