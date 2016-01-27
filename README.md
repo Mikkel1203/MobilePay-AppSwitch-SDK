@@ -22,7 +22,15 @@ Please look at the Danske Bank Developer Site for further details [Danske Bank D
   [1]: https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/blob/master/doc/wiki/images/mobilepay_appswitch_purchase_flow.png "MobilePay AppSwitch purchase flow"
 
 ## MerchantID for test purposes
-**APPDK0000000000** can be used for test purposes. When the test merchantId is used you are able to complete the payment flow without transferring any money.
+The MerchantID for testing depends on which country you are targeting. The following IDs can be used:
+
+**APPDK0000000000** - Denmark
+
+**APPNO0000000000** - Norway
+
+**APPFI0000000000** - Finland
+
+When the test MerchantID is used you are able to complete the payment flow without transferring any money.
 
 ## Cross-platform
 Please look at the wiki page for further details [wiki site](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Cross-platform)
@@ -37,3 +45,4 @@ Please look at the wiki page for further details [wiki site](https://github.com/
  * [Supported OS versions](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Supported-OS-versions)
  * [Known Errors](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Known-errors)
  * [Cross-platform](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Cross-platform)
+ * [Payment Types](https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/wiki/Payment-Types)
