@@ -1,13 +1,5 @@
 ## MobilePay AppSwitch
 The MobilePay SDK enables your app to receive payments through the MobilePay app.
-
-### Latest SDK Version ###
-|Platform|Version|
-|:--------|:---|
-|Android| 1.7.0|
-|iOS| 1.7.1|
-|WP| 1.7.0|
-
 ![][1]
 
 **How it works**  
@@ -20,6 +12,13 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
 4 - The receipt is shown and the user can either tap "videre" or wait one second. A counter is showing the time remaining.
 
 5 - MobilePay switches back to your own app together with a MobilePay transactionId.
+
+## Latest SDK Version ##
+|Platform|Version|
+|:--------|:---|
+|Android| 1.7.0|
+|iOS| 1.7.1|
+|WP| 1.7.0|
 
 ## Support
 For technical questions about the MobilePay AppSwitch SDK or other related questions, please contact Danske Bank at **+45 70 114 115** or [kundesupport@danskebank.dk](mailto://kundesupport@danskebank.dk)
