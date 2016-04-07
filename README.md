@@ -1,5 +1,13 @@
 ## MobilePay AppSwitch
 The MobilePay SDK enables your app to receive payments through the MobilePay app.
+
+### Latest SDK Version ###
+|Platform|Version|
+|:--------|:---|
+|Android| 1.7.0|
+|iOS| 1.7.1|
+|WP| 1.7.0|
+
 ![][1]
 
 **How it works**  
