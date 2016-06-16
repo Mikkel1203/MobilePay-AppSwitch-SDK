@@ -5,10 +5,10 @@
 //  Copyright (c) 2014 Trifork A/S All rights reserved.
 //
 
-@import Foundation;
-@import UIKit;
-@import CoreGraphics;
-@import CoreImage;
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <CoreImage/CoreImage.h>
 
 #import "MobilePayPayment.h"
 #import "MobilePaySuccessfulPayment.h"
@@ -201,9 +201,14 @@ DEPRECATED_MSG_ATTRIBUTE("Use setupWithMerchantId:(NSString * __nonnull)merchant
  * Most of there errors are technical errors (1,2,4,5,9,10,11) that must be presented as a generic error message without details to the user, where others SHOULD BE HANDLED BY YOUR APP (3,6,7,8,12) to guide the user in the right direction.
  */
 
--(void)handleMobilePayCallbacksWithUrl:(NSURL * __nonnull)url success:(__nonnull MobilePayCallbackSuccessBlock)successBlock error:(__nullable MobilePayCallbackErrorBlock)errorBlock cancel:(__nullable MobilePayCallbackCancelBlock)cancelBlock DEPRECATED_MSG_ATTRIBUTE("Use handleMobilePayCallbacksWithUrl:(NSURL * __nonnull)url success:(__nonnull MobilePaySuccessfulPayment)successfulBlock error:(__nullable MobilePayCallbackErrorBlock)errorBlock cancel:(__nullable MobilePayCallbackCancelBlock)cancelBlock instead");
-
 -(void)handleMobilePayPaymentWithUrl:(NSURL * __nonnull)url success:(__nullable MobilePayPaymentSuccessBlock)successfulBlock error:(__nullable MobilePayPaymentErrorBlock)errorBlock cancel:(__nullable MobilePayPaymentCancelledBlock)cancelBlock;
+
+
+/**
+ * Deprecated method - please use method above
+ */
+-(void)handleMobilePayCallbacksWithUrl:(NSURL * __nonnull)url success:(__nonnull MobilePayCallbackSuccessBlock)successBlock error:(__nullable MobilePayCallbackErrorBlock)errorBlock cancel:(__nullable MobilePayCallbackCancelBlock)cancelBlock DEPRECATED_MSG_ATTRIBUTE("Use 'handleMobilePayPaymentWithUrl:(NSURL * __nonnull)url success:(__nullable MobilePayPaymentSuccessBlock)successfulBlock error:(__nullable MobilePayPaymentErrorBlock)errorBlock cancel:(__nullable MobilePayPaymentCancelledBlock)cancelBlock' method instead");
+
 
 /**
  *Checks if url can be opened, and it will only for check for the appstore version of MobilePay
@@ -315,6 +320,18 @@ DEPRECATED_MSG_ATTRIBUTE("Use setupWithMerchantId:(NSString * __nonnull)merchant
  * returns the version of signature. This can be used to make specific logic for each version, which can be useful for example when validating different signatures
  */
 @property (nonatomic, readonly) NSString * __nonnull signatureVersion;
+
+/**
+ *Set the optional Server Callback URL for server-to-server communication in order to receive instant feedback on current transaction. This enables merchants to react accordingly.
+ *
+ *Max 255 characters and it must be an HTTPS:// endpoint
+ *
+ *Example:
+ *[[MobilePayManager sharedInstance] setServerCallbackUrl:@"https://example.com/appswitchstatus?TimeStamp=2015-08-27T15:36:42.939&OrderId=34666357&MerchantId=APPDK1175851001&TransactionId=1234567890&Amount=00001500&Currency=DKK&Country=DK&PaymentStatus=RES&ReturnCode=00&ReasonCode=00"];
+ *
+ */
+
+-(void)setServerCallbackUrl:(NSString * __nonnull)serverCallbackUrl;
 
 /**
  * for internal development purpose only

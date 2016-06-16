@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 DanskeBank A/S. All rights reserved.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 /**
  * Contains information about the payment being processed.
