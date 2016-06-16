@@ -16,9 +16,9 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
 ## Latest SDK Version ##
 |Platform|Version|
 |:--------|:---|
-|Android| 1.7.0|
-|iOS| 1.7.1|
-|WP| 1.7.0|
+|Android| 1.8.0|
+|iOS| 1.8.0|
+|WP| 1.8.0|
 
 ## Support
 For technical questions about the MobilePay AppSwitch SDK or other related questions, please contact Danske Bank at **+45 70 114 115** or [kundesupport@danskebank.dk](mailto://kundesupport@danskebank.dk)
