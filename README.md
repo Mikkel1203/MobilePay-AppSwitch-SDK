@@ -21,10 +21,10 @@ The MobilePay SDK enables your app to receive payments through the MobilePay app
 |WP| 1.8.0|
 
 ## Support
-For technical questions about the MobilePay AppSwitch SDK or other related questions, please contact Danske Bank at **+45 70 114 115** or [kundesupport@danskebank.dk](mailto://kundesupport@danskebank.dk)
+For technical questions about the MobilePay AppSwitch SDK or other related questions, please contact Danske Bank at **+45 70 114 115** or [mp_appswitch@mobilepay.dk](mailto://mp_appswitch@mobilepay.dk)
 
 ## Requirements
-Please look at the Danske Bank Developer Site for further details [Danske Bank Developer site](http://danskebank.dk/da-dk/mobilepay/pages/app-switch.aspx)
+Please look at the MobilePay Developer Site for further details [MobilePay Developer site](http://danskebank.dk/da-dk/mobilepay/pages/app-switch.aspx)
 
   [1]: https://github.com/DanskeBank/MobilePay-AppSwitch-SDK/blob/master/doc/wiki/images/mobilepay_appswitch_purchase_flow.png "MobilePay AppSwitch purchase flow"
 
